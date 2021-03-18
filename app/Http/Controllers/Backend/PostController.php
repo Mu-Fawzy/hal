@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Requests\Backend\Posts\Store;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Tag;
 
@@ -34,7 +35,7 @@ class PostController extends BackendController
         if ($request->has('tags') && !empty($request->tags)) {
             $row->tags()->sync($request->tags);
         }
-        
+
         return redirect()->route($folerViewName.'.index');
     }
 
@@ -64,14 +65,21 @@ class PostController extends BackendController
 
     public function withRelation()
     {
-        return ['user'];
+        return ['user','comments'];
     }
 
     public function appendTo()
     {
-        return [
+        $array = [
             'categories' => Category::pluck('name','id')->toArray(),
             'tags' => Tag::pluck('name','id')->toArray(),
         ];
+
+        //parse data to edit only
+        if (request()->route()->parameter('post') != null) {
+            $array['comments'] = $this->model->with('user')->find(request()->route()->parameter('post'))->comments()->get();
+        }
+
+        return $array;
     }
 }

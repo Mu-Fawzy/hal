@@ -34,6 +34,11 @@ class Post extends Model
         return $this->belongsToMany(Category::class,'category_post','post_id','category_id');
     }
 
+    public function comments()
+    {
+        return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
+    }
+
     public function scopePage($query)
     {
         return $query->where('post_type', 'page');

@@ -1,6 +1,6 @@
 @extends('layouts.frontend.app')
 
-@section('title','اخر المقالات')
+@section('title', $category->name)
     
 @section('content')
     <div class="container bg-color">
@@ -9,7 +9,9 @@
                 <div class="col-md-8">
                     <div class="content-single">
                         <div class="title">
-                            <h3>اخر المقالات</h3>
+                            @if ($category)
+                                <h3>{{ $category->name }}</h3>
+                            @endif
                         </div>
                         <div class="categories_page">
                             @include('layouts.frontend.post_row')

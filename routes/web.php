@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('home.page');
 
 
 Route::group(['prefix' => 'admin','namespace'=>'Backend'], function() {
@@ -27,9 +27,12 @@ Route::group(['prefix' => 'admin','namespace'=>'Backend'], function() {
     Route::resource('tags', 'TagController')->except('show');
     Route::resource('posts', 'PostController')->except('show');
     Route::resource('pages', 'PageController')->except('show');
+    Route::resource('comments', 'CommentController')->except('show');
+    Route::post('comments/{id}/reply', 'CommentController@replyComments')->name('comments.replycomments');
 });
 
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/category/{id}', 'HomeController@category')->name('category.home.index');

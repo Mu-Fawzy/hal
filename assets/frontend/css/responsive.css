@@ -1,0 +1,195 @@
+@media only screen and (min-width: 991px) and (max-width: 1100px) {
+  header .nav ul li a,header .nav ul li a:hover {
+    font-size: 13px;
+    padding: 0 10px;
+  }
+  header .nav li ul li a:hover {
+    padding: 0 15px;
+  }
+}
+@media only screen and (max-width: 991px)  {
+  header .inner_header .logo a img {
+    max-height: 50px;
+  }
+  header .bottom {
+    height: 70px;
+    
+  
+    line-height: 70px;
+}
+  header .nav {
+    display: none;
+    width: 200px;
+    background-color: #FFF;
+    border: 1px solid #EEEEEE;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 9999999;
+    float: none;
+}
+  header .nav ul li {
+    display: block;
+    border-bottom: 1px solid #41B7D8;
+    height: inherit !important;
+    padding: 0 !important;
+}
+  header .nav ul li:hover:before {
+    color:#FFF
+  ;
+    z-index: 0;
+}
+  header .nav ul li:last-child {
+    border-bottom:0
+  }
+  header .nav ul li a {
+    border-radius: 0;
+    display: block;
+}
+  header .nav ul li a:hover {
+    transform:none;
+    border-radius: 0;
+  
+    cursor: pointer;
+    display: block;
+    position: relative;
+    z-index: 1111111;
+}
+  .nav_responsive {
+    display:block;
+  
+    float: left;
+    color: #33A6B2;
+    font-size: 25px;
+}
+  .nav_responsive i {
+    cursor:pointer;
+  }
+  header .nav li ul li ul {
+    position:relative !important;
+  }
+  header .nav li ul {
+    position: relative;
+    width: 100%;
+    top: 0;
+    background-color: #33A6B2 !important;
+    box-shadow: none;
+    border-radius: 0;
+    right: 0px !important;
+}
+  header .nav li.menu-item-has-children:hover > ul.sub-menu {
+    display: none;
+  
+    animation: none;
+}
+  
+  header .nav li ul a {
+    color:#FFF;
+  
+}
+}
+@media only screen and (max-width: 768px)  {
+.nav_responsive_top {display:block;color: #FFF;font-size: 25px;cursor: pointer;}
+.top-nav {position:relative;z-index: 9999999;}
+.search-sign .right .top-nav ul {display:none;      width: 200px;      background-color: #33A6B2;      border: 1px solid #EEEEEE;      position: absolute;      top: 100%;      right: 0;      z-index: 9999999999999999999;      height: initial;}
+.search-sign .right .top-nav ul li {
+    display: block;      border-bottom: 1px solid #41B7D8;            padding: 0 !important;
+    float: none;
+    width: 100%;
+    text-align: center;
+}
+.search-sign .right .top-nav ul li a{
+    height: 35px;
+    line-height: 35px;
+}
+}
+@media only screen and (max-width: 480px) {
+  .search-sign .left .search {
+    float: left;
+  }
+  .search-sign .left .social_media {
+    float: right;
+  }
+   .social_media ul:after {
+    left: -17px;
+    right: inherit;
+  }
+}
+@media only screen and (max-width: 350px)   {
+  .search-sign .right {
+    width: 10%;
+    
+  }
+}
+@media only screen and (max-width: 991px) {
+	.sidebar-home {
+		margin-top: 30px;
+	}
+	.more_view .small-post,.related .small-post {
+		width: 50%;
+		float: right;
+	}
+	.related .small-post {
+		display: block;
+	}
+	.more_view .small-post:nth-child(odd) {
+		width: 49%;
+		margin-left: 1%;
+	}
+	.related .small-post {
+		width: 48%;
+		margin:0 1%;
+	
+		margin-bottom: 20px;
+}
+}
+@media only screen and (max-width:768px ) {
+	.cat .small-post {
+		width: 48%;
+		float: right;
+		margin: 0 1%;
+		margin-bottom: 20px;
+	}
+	.cat .small-post .content-slide {
+		margin-bottom:8px
+	}
+	.cat .small-post .content-slide h3.title {
+		height: 55px;
+		overflow: hidden;
+	}
+}
+@media only screen and (max-width:620px ) {
+	.more_view .content-slide h3.title,
+	.related .content-slide h3.title {
+		height: 55px;
+		overflow: hidden;
+	}
+	.more_view .content .content-slide,
+	.related .content .content-slide {
+    margin-bottom: 8px;
+		
+	}
+	footer .inner_footer .col-xs-6 {
+		width: 100%;
+		text-align: center;
+	}
+	footer .inner_footer .col-xs-6 .text-left,
+	footer .inner_footer .col-xs-6 .text-right {
+    text-align: center;
+	}
+	footer .inner_footer .col-xs-6 .text-left .social_media {
+    float: none;
+		
+	}
+	footer .inner_footer p {
+		line-height: initial;
+	
+		margin-top: 11px;
+}
+}
+@media only screen and (max-width:540px ) { 
+	.small-post {
+		width: 100% !important;
+	}
+
+}

@@ -43,6 +43,24 @@
                                 </div>
                             {!! Form::close() !!}
                         @endcomponent
+
+                        <div id="comments">
+                            @component('backend.components.commentCard',['title'=>'Comments','description'=>'Here You Can Add Comments'])
+                                @slot('form')
+                                {!! Form::open(['class'=>'form-horizontal', 'route'=> ['comments.store'], 'method'=>'POST']) !!}
+                                    {!! Form::hidden('post_id', $row->id, []) !!}
+                                    @include('backend.comments.form', ['title'=>'Add Comment'])
+                                    <div class="text-left">
+                                        {!! Form::submit('Add Comment' , ['class'=>'btn btn-primary waves-effect waves-light']) !!}
+                                    </div>
+                                {!! Form::close() !!}
+                                @endslot
+                                
+                                @include('backend.components.replies',['comments'=>$comments, 'row'=>$row])
+                                
+                            @endcomponent
+                        </div>
+
 					</div><!-- COL END -->
 				</div>
 				<!-- row closed  -->
