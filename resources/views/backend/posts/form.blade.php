@@ -16,7 +16,9 @@
             {!! Form::label($field, ucfirst($field), ['class'=>'form-label']) !!}
         </div>
         <div class="col-md-9">
-            {!! Form::textarea($field, isset($row) ? $row->$field : null, ['id'=>$field, 'rows'=>3, 'class'=>'form-control', 'placeholder'=>ucfirst($field)]) !!}
+            <div class="ql-wrapper ql-wrapper-demo bg-gray-100">
+                <div id="quillEditor">{!! isset($row) ? $row->$field : null !!}</div>
+            </div>
         </div>
     </div>
 </div>

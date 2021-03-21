@@ -36,3 +36,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/category/{id}', 'HomeController@category')->name('category.home.index');
+Route::get('/author/{id}', 'HomeController@author')->name('author.home.index');
+Route::get('/post/{id}', 'HomeController@post')->name('post.index');
+Route::post('comments', 'HomeController@addComments')->name('comments.addcomments');
+Route::post('comments/{id}/reply', 'HomeController@replaycomments')->name('comments.replaycomments');

@@ -1,7 +1,7 @@
 <div class="row">
     @foreach ($posts as $post)
         <div class="col-md-6">
-            @include('backend.components.frontend.article')
+            @include('frontend.components.article')
         </div>
     @endforeach
 </div>

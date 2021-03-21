@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -39,6 +40,11 @@ class Post extends Model
         return $this->morphMany(Comment::class, 'commentable')->whereNull('parent_id');
     }
 
+    public function allComments()
+    {
+        return $this->morphMany(Comment::class, 'commentable');
+    }
+
     public function scopePage($query)
     {
         return $query->where('post_type', 'page');
@@ -47,4 +53,11 @@ class Post extends Model
     {
         return $query->where('post_type', 'post');
     }
+
+    public function getCreatedAtAttribute($date)
+    {
+        return Carbon::parse($date)->translatedFormat('d M ,Y');
+    }
 }
+
+

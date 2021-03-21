@@ -33395,6 +33395,7 @@ table.dataTable tfoot th, table.dataTable tfoot td {
 .ql-snow .ql-editor {
   padding: 20px;
   color: #364261;
+  text-align: right;
 }
 
 @media (min-width: 576px) {
