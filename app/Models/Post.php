@@ -58,6 +58,7 @@ class Post extends Model
     {
         return Carbon::parse($date)->translatedFormat('d M ,Y');
     }
+
 }
 
 

@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->string('name');
             $table->longText('description')->nullable();
             $table->string('image')->nullable()->default('assets/img/no-image.png');
+            $table->unsignedBigInteger('views')->default(0);
             $table->enum('post_type', ['post', 'page'])->default('post');
             $table->string('mata_key')->nullable();
             $table->string('mata_description')->nullable();

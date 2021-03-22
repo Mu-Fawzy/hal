@@ -40,19 +40,17 @@
                                 </li>
                             @endguest
                             <li class="active"><a data-value="الرئيسية" href="{{ route('home.page') }}">الرئيسية</a></li>
-                            <li><a data-value="من نحن" href="">من نحن</a></li>
-                            <li><a data-value="سياسة الخصوصية" href="">سياسة الخصوصية</a></li>
-                            <li><a data-value="اتصل بنا" href="">اتصل بنا</a></li>
+                            @foreach ($pages as $page)
+                                <li><a data-value="{{ $page->name }}" href="{{ route('page.index', ['id'=>$page->id,'slug'=>Str::slug($page->name, '-')]) }}">{{ $page->name }}</a></li>
+                            @endforeach
+                            <li><a data-value="اتصل بنا" href="{{ route('contactus.home') }}">اتصل بنا</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="left">
                     <div class="search">
                         <a href=""><span><i class="fa fa-search"></i></span></a>
-                        <form role="search" method="get" id="searchform">
-                            <input type="text" name="s" placeholder="ابحث هنا...">
-                            <input type="submit" id="searchsubmit" name="submit" hidden="">
-                        </form>
+                        @include('layouts.frontend.search-form')
                     </div>
                     <div class="social_media">
                         <ul>

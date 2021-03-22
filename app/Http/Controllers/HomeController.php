@@ -2,11 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\ShowPost;
+use App\Mail\ContactUs;
 use App\Models\Category;
 use App\Models\Comment;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Mockery\Generator\StringManipulation\Pass\Pass;
 
 class HomeController extends Controller
 {
@@ -27,7 +31,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $posts = Post::orderBy('id', 'desc')->paginate(10);
+        $posts = Post::with(['categories','user','allComments'=>function($query){
+            return $query->select('id','commentable_id');
+        }]);
+        $posts = $posts->when(request()->search ,function($q){
+            return $q->where('name', 'LIKE', '%'.request()->get('search').'%');
+        });
+        $posts = $posts->orderBy('id', 'desc')->paginate(10);
+
         return view('home', compact('posts'));
     }
 
@@ -46,7 +57,7 @@ class HomeController extends Controller
 
     public function author($id)
     {
-        $author = User::select('name')->findOrFail($id);
+        $author = User::select('name','image')->findOrFail($id);
         $posts = Post::with(['categories','user','allComments'=>function($query){
             return $query->select('id','commentable_id');
         }])->where('user_id', $id)->orderBy('id', 'desc')->paginate(10);
@@ -68,7 +79,17 @@ class HomeController extends Controller
             return $q->whereIn('category_id', $getCategories->categories->pluck('id'));
         })->where('id','!=',$id)->orderBy('id', 'desc')->get();
 
+        event(new ShowPost($post));
+
         return view('frontend.single', compact('post','posts','relatedPosts'));
+    }
+
+    public function page($id,$slug)
+    {
+        $model = Post::class;
+        $page = $model::where('post_type','page')->findOrFail($id);
+
+        return view('frontend.page', compact('page'));
     }
 
     public function addComments(Request $request)
@@ -88,5 +109,23 @@ class HomeController extends Controller
         $postId->comments()->create($array);
 
         return redirect()->route('post.index',['id'=>$postId,'#comments']);
+    }
+
+    public function contactus()
+    {
+        return view('frontend.contactus');
+    }
+
+    public function sendMessage(Request $request)
+    {
+        $senderName = $request->name;
+        $senderSubject = $request->subject;
+        Mail::to($request->email)->send(new ContactUs($senderName,$senderSubject));
+    }
+
+    public function homePage()
+    {
+        $categories = Category::with(['posts'])->get();
+        return view('welcome',compact('categories'));
     }
 }

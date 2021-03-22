@@ -32,6 +32,7 @@
 										<th class="wd-lg-8p"><span>Name</span></th>
 										<th class="wd-lg-35p"><span></span></th>
 										<th class="wd-lg-35p"><span>UserName</span></th>
+										<th class="wd-lg-35p"><span>Views Number</span></th>
 										<th class="wd-lg-35p">Action</th>
 									</tr>
 								</thead>
@@ -41,6 +42,7 @@
 											<td><img alt="avatar" class="rounded-circle avatar-md mr-2" src="{{URL::asset(imagePath('no-image.png',$row->image))}}"></td>
 											<td>{{ $row->name }}</td>
 											<td>{{ $row->user->name }}</td>
+											<td>{{ $row->views }}</td>
 											<td>
 												@include('backend.components.btnEdit',['row'=>$row,'folerViewName' => $folerViewName])
 												@include('backend.components.btnDelete',['row'=>$row,'folerViewName' => $folerViewName])

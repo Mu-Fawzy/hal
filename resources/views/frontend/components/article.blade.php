@@ -1,6 +1,6 @@
 <article>
     <div class="thumb">
-        <a href="{{ route('post.index',$post) }}"><img src="{{URL::asset('assets/frontend/img/friends1-1200x600-580x290.jpg')}}" alt=""></a>
+        <a href="{{ route('post.index',$post) }}"><img src="{{URL::asset(imagePath('no-image.png',$post->image))}}" alt=""></a>
         <div class="more-thumb"><a href="{{ route('post.index',$post) }}"><i class="fa fa-paper-plane"></i></a></div>
     </div>
     <div class="meta_absolute">
@@ -9,7 +9,7 @@
             <span><a href="">{{ $post->user->name }}</a></span> 
         </div>
         <div class="post-type"><i class="fa fa-picture-o fa-2"></i></div>
-        <div class="post-view">15</div>
+        <div class="post-view">{{ $post->views }}</div>
     </div>
     <div class="content">
         <div class="content-slide" style="height: 156px; overflow: hidden;">

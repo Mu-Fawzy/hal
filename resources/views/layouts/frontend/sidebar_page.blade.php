@@ -118,34 +118,15 @@
     </article>
 </div>
 
-<div class="widget facebook"> 		
+<div class="widget facebook"> 
+    <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/ar_AR/sdk.js#xfbml=1&version=v10.0&appId=1432035843595042&autoLogAppEvents=1" nonce="JCp7yPB6"></script>
+		
     <div class="title">
         <h3>فيس بوك</h3>
     </div>
-    <div class="fb-page" data-href="https://www.facebook.com/wwwBA9MHcom" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/wwwBA9MHcom"><a href="https://www.facebook.com/wwwBA9MHcom">‎بصمة لتصميم المواقع‎</a></blockquote></div></div>		
+    <div class="fb-page" data-href="https://www.facebook.com/APCOKSA/" data-tabs="" data-width="" data-height="" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/APCOKSA/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/APCOKSA/">‏‎Arab Professionals Contracting Company‎‏</a></blockquote></div>		
     
-</div>
-<div class="widget facebook"> 		
-    <div class="title">
-        <h3>جوجل بلاس</h3>
-    </div>
-    <div class="g-person" data-href="//plus.google.com/u/0/103926080687738172942" data-rel="author"></div>      
-</div>
-<div class="widget twitter"> 		
-    <div class="title">
-        <h3>تويتر</h3>
-    </div>
-    <div id="twitter-box"></div>
-</div>
-                        
-<div class="widget subscribe"> 		
-    <div class="title">
-        <h3>اشترك معنا</h3>
-    </div>
-    <form class="inner_subscribe">
-        <input type="text" class="form-control" placeholder="ضع البريد الالكترونى الخاص بك هنا ...">
-        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-    </form>
 </div>
 
 <div class="widget ads"> 		
@@ -153,7 +134,7 @@
         <h3>اعلن معنا</h3>
     </div>
     <div class="wedgit_ads">
-        <img src="img/300_250.gif" alt="">
+        <img src="{{ URL::asset('assets/frontend/img/300_250.gif') }}" alt="">
     </div>
 </div>
 

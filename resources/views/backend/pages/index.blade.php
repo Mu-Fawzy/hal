@@ -41,7 +41,7 @@
 										<tr>
 											<td><img alt="avatar" class="rounded-circle avatar-md mr-2" src="{{URL::asset(imagePath('no-image.png',$row->image))}}"></td>
 											<td>{{ $row->name }}</td>
-											<td>{{ strip_tags( Str::words($post->description, 25, ' ...')) }}</td>
+											<td>{{ strip_tags( Str::words($row->description, 25, ' ...')) }}</td>
 											<td>{{ $row->user->name }}</td>
 											<td>
 												@include('backend.components.btnEdit',['row'=>$row,'folerViewName' => $folerViewName])
