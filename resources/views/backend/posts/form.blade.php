@@ -83,3 +83,17 @@
         </div>
     </div>
 </div>
+
+<div class="form-group ">
+    <div class="row">
+        @php    $field = 'featured_post';    @endphp
+        <div class="col-md-3">{{ $field }}</div>
+        <div class="checkbox col-md-9"> 
+            <div class="custom-checkbox custom-control"> 
+                {!! Form::checkbox($field, isset($row) ? $row->$field : null, 1, ['id'=> $field,'data-checkboxes'=>'mygroup', 'class'=>'custom-control-input']) !!}
+                {!! Form::label($field, ucfirst($field), ['class'=>'custom-control-label mt-1']) !!}
+            </div>
+        </div>
+    </div>
+</div>
+

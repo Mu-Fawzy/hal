@@ -17,6 +17,7 @@ class PostController extends BackendController
 
     public function store(Store $request)
     {
+        return $request;
         $folerViewName = $this->getModelLower();
         $array = $request->all()+['user_id' => auth()->id(), 'post_type' => 'post'];
 

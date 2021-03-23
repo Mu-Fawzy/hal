@@ -23,6 +23,7 @@ class CreatePostsTable extends Migration
             $table->enum('post_type', ['post', 'page'])->default('post');
             $table->string('mata_key')->nullable();
             $table->string('mata_description')->nullable();
+            $table->boolean('featured_post')->default(false);
             
             $table->integer('user_id')->unsigned();
             
