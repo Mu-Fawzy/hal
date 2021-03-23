@@ -17,6 +17,7 @@ class Post extends Model
         'post_type',
         'mata_key',
         'mata_description',
+        'featured_post',
         'user_id'
     ];
 

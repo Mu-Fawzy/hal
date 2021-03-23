@@ -17,9 +17,10 @@ class PostController extends BackendController
 
     public function store(Store $request)
     {
-        return $request;
         $folerViewName = $this->getModelLower();
         $array = $request->all()+['user_id' => auth()->id(), 'post_type' => 'post'];
+
+        $array['featured_post'] = (isset($request->featured_post) && $request->featured_post == true) ? true : false;
 
         if($this->hasImage($request))
         {
@@ -45,6 +46,8 @@ class PostController extends BackendController
         $row = $this->model->post()->findOrFail($id);
         $folerViewName = $this->getModelLower();
         $array = $request->all();
+
+        $array['featured_post'] = (isset($request->featured_post) && $request->featured_post == true) ? true : false;
 
         if($this->hasImage($request))
         {
