@@ -29,8 +29,15 @@ class SettingController extends BackendController
 
     public function update(Request $request, $id)
     {
-        for ($i=0; $i < count($request->id); $i++) { 
-            $input['value'] = isset($request->value[$i]) ? $request->value[$i] : null;
+        // return $request->value[0];
+        $folerViewName = $this->getModelLower();
+        for ($i=0; $i < count($request->id); $i++) {
+            if ($request->key[$i] == 'logo') {
+                $input['value'] = isset($request->value[$i]) ? $request->value[$i]->store($folerViewName, 'uploads') : null;
+            }else {
+                $input['value'] = isset($request->value[$i]) ? $request->value[$i] : null;
+            }
+            
             Setting::whereId($request->id[$i])->first()->update($input);
 
         }

@@ -3,6 +3,8 @@
 @section('title', $title)
 
 @section('css')
+    <!---Internal Fileupload css-->
+    <link href="{{URL::asset('assets/backend/plugins/fileuploads/css/fileupload.css')}}" rel="stylesheet" type="text/css"/>
 @endsection
 
 
@@ -53,7 +55,7 @@
                                                     @elseif ($setting_section->type == 'textarea')
                                                         {!! Form::textarea('value['.$loop->index.']', $setting_section->value, ['id'=>'value'.$loop->index,'class'=> 'form-control','rows'=> '4']) !!}
                                                     @elseif ($setting_section->type == 'file')
-                                                        {!! Form::file('value['.$loop->index.']', ['id'=>'value'.$loop->index,'class'=> 'form-control','placeholder'=>$setting_section->display_name]) !!}
+                                                        {!! Form::file('value['.$loop->index.']', ['id'=>'value['.$loop->index.']', 'class'=>'dropify','placeholder'=>$setting_section->display_name,  'data-default-file'=> isset($setting_section) ? (!empty($setting_section->value) ? asset(imagePath('no-image.png',$setting_section->value)) : null) : null, 'data-height'=>'200']) !!}
                                                     @endif
 
                                                     {!! Form::hidden('id['.$loop->index.']', $setting_section->id) !!}
@@ -87,4 +89,7 @@
 		<!-- main-content closed -->
 @endsection
 @section('js')
+    <!--Internal Fileuploads js-->
+    <script src="{{URL::asset('assets/backend/plugins/fileuploads/js/fileupload.js')}}"></script>
+    <script src="{{URL::asset('assets/backend/plugins/fileuploads/js/file-upload.js')}}"></script>
 @endsection
