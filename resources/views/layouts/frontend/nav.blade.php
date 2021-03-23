@@ -70,7 +70,7 @@
                 <!-- start logo -->
                 <div class="logo">
                     <a href="{{ route('home.page') }}">
-                        <img src="{{URL::asset('assets/frontend/img/logo.png')}}" alt="" title="">
+                        <img src="{{URL::asset('assets/frontend/img/logo.png')}}" alt="{{ getSettingOf('site_title') }}" title="{{ getSettingOf('site_title') }}">
                     </a>
                 </div>
                 <!-- end logo -->

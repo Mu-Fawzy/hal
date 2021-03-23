@@ -5699,7 +5699,7 @@ textarea.form-control.is-invalid, textarea.form-control.parsley-error {
       font-size: 24px;
       line-height: 0;
       width: 24px;
-      margin-right: 12px;
+      margin-left: 12px;
       text-align: center;
       transition: all 0.2s ease-in-out; }
       .main-nav-column .nav-link i:not([class*=' tx-']) {

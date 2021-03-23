@@ -23,6 +23,7 @@ Route::group(['prefix' => 'admin','namespace'=>'Backend'], function() {
     Route::resource('posts', 'PostController')->except('show');
     Route::resource('pages', 'PageController')->except('show');
     Route::resource('comments', 'CommentController')->except('show');
+    Route::resource('settings', 'SettingController')->except('show');
     Route::post('comments/{id}/reply', 'CommentController@replyComments')->name('comments.replycomments');
 });
 

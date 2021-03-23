@@ -1,4 +1,5 @@
 <?php
+use Spatie\Valuestore\Valuestore;
 
 function getStatusText($value)
 {
@@ -21,4 +22,10 @@ function imagePath($defaultImg ,$value)
 function checkPostType()
 {
     return request()->segment(2);
+}
+
+function getSettingOf($key)
+{
+    $settings = Valuestore::make(config_path('settings.json'));
+    return $settings->get($key); // Returns 'value'
 }
